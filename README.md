@@ -5,6 +5,9 @@
 
 ## Getting Started
 
+this tool should run under git enviroment
+windows use git bash or others
+
 ### What is Yeoman?
 
 Trick question. It's not a thing. It's this guy:
