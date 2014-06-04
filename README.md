@@ -1,5 +1,4 @@
-# generator-fedtpl [![Build Status](https://secure.travis-ci.org/force2008/generator-fedtpl.png?branch=master)](https://travis-ci.org/force2008/generator-fedtpl)
-
+# generator-fedtpl 
 > [Yeoman](http://yeoman.io) generator
 
 
