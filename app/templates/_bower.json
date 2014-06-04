@@ -1,0 +1,10 @@
+{
+  "name": "fedtpl",
+  "version": "0.0.0",
+  "dependencies": {
+	"nej":"https://github.com/NetEaseWD/NEJ.git",
+	"publisher":"https://github.com/NetEaseWD/NEJPublisher.git",
+	"mcss":"https://github.com/NetEaseWD/mcss.git"
+  }
+}
+
