@@ -1,9 +1,11 @@
-# generator-fedtpl [![Build Status](https://secure.travis-ci.org/force2008/generator-fedtpl.png?branch=master)](https://travis-ci.org/force2008/generator-fedtpl)
-
+# generator-fedtpl 
 > [Yeoman](http://yeoman.io) generator
 
 
 ## Getting Started
+
+this tool should run under git enviroment
+windows use git bash or others
 
 ### What is Yeoman?
 
