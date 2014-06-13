@@ -33,7 +33,6 @@
       <textarea name="html" data-src="module/blog/tab/index.html"></textarea>
       <textarea name="html" data-src="module/blog/list.box/index.html"></textarea>
       <textarea name="html" data-src="module/blog/list.tag/index.html"></textarea>
-      <textarea name="html" data-src="module/blog/list.class/index.html"></textarea>
       <textarea name="html" data-src="module/layout/system/index.html"></textarea>
       <textarea name="html" data-src="module/layout/blog/index.html"></textarea>
       <textarea name="html" data-src="module/layout/blog.list/index.html"></textarea>
@@ -55,7 +54,7 @@
     <!-- @VERSION -->
     <script>location.config={root:'./'};</script>
     <!-- @DEFINE -->
-    <script src="../javascript/nej/define.js"></script>
+    <script src="../3rd/nej/src/define.js?pro=../javascript/"></script>
     <script>
       define(['{lib}util/dispatcher/dispatcher.2.js'],
       function(){
@@ -102,7 +101,6 @@
                   '/?/blog/tab/':'module/blog/tab/index.html',
                   '/?/blog/box/':'module/blog/list.box/index.html',
                   '/?/blog/tag/':'module/blog/list.tag/index.html',
-                  '/?/blog/class/':'module/blog/list.class/index.html',
                   '/?/blog/list/':'module/blog/list/index.html',
                   '/?/setting/tab/':'module/setting/tab/index.html',
                   '/?/setting/account/tab/':'module/setting/account.tab/index.html',
@@ -124,8 +122,7 @@
                       composite:{
                           box:'/?/blog/box/',
                           tag:'/?/blog/tag/',
-                          list:'/?/blog/list/',
-                          clazz:'/?/blog/class/'
+                          list:'/?/blog/list/'
                       }
                   },
                   '/m/blog/tag/':'module/blog/tag/index.html',
@@ -146,7 +143,7 @@
                   '/m/setting/account/edu/':'module/setting/edu/index.html',
                   '/m/setting/permission/':'module/setting/permission/index.html'
               },
-              /*
+              /* 另一种方式的实现
               modules:{
                   '/?/tab/':'module/tab/index.html',
                   '/?/blog/tab/':'module/blog.html',

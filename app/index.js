@@ -55,13 +55,11 @@ var FedtplGenerator = yeoman.generators.Base.extend({
 	];
 
     this.prompt(prompts, function (props) {
-	  console.log( JSON.stringify(props, null, "  ") );
-      //this.someOption = props.someOption;
 	  this.blogName = props.tplName;
 	  this.mcss = props.mcss;
 	  this.freemaker = props.freemaker;
 	  this.test = props.test;
-	  console.log('template name:',this.blogName,',mcsss:',this.mcss,'freemaker:',this.freemaker,'test:',this.test)
+	  //console.log('template name:',this.blogName,',mcss:',this.mcss,'freemaker:',this.freemaker,'test:',this.test)
 	  done();
     }.bind(this));
 	var prompts = [{
@@ -93,9 +91,9 @@ var FedtplGenerator = yeoman.generators.Base.extend({
 		} else{
 			this.copy('deploy/release.conf', 'deploy/release.conf');
 		}
+		var _bower = require('./templates/_bower.json');
 		if(this.test){
 			this.bulkDirectory('webapp/test','webapp/test');
-			var _bower = require('./templates/_bower.json');
 			console.log(JSON.stringify(_bower));
 			_bower.dependencies.jasmine = 'https://github.com/pivotal/jasmine.git'
 		}
@@ -110,13 +108,13 @@ var FedtplGenerator = yeoman.generators.Base.extend({
 	var _package = {
 					  "name": "package",
 					  "version": "0.0.0",
-					  "scripts": {
-						"preinstall": "npm i -g mcss"
-					  },
+					  "scripts": {},
 					  "dependencies": {}
 					};
+
 	if(this.mcss){
-		_package.dependencies.mcss='0.4.8'
+		_package.scripts.preinstall ="npm i -g mcss";
+		_package.dependencies.mcss='0.4.8';
 	}
 	
 	//this.copy('_package.json', 'package.json');

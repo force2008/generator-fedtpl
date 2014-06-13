@@ -26,7 +26,7 @@ button{line-height:normal;}
 body{line-height:1.5;word-wrap:break-word;word-break:break-all;}
 
 /* backgroundImage */
-.m-logo{background:url(../../res/image/sprite.png) no-repeat 9999px 9999px;}
+.m-logo{background:url(../../res/images/sprite.png) no-repeat 9999px 9999px;}
 
 /* clear */
 .g-hd:after,.g-bd:after,.g-ft:after,.g-cols:after,.g-col:after,.g-cor:after{display:block;clear:both;visibility:hidden;height:0;content:".";}

@@ -32,7 +32,7 @@ html{overflow-y:scroll;}
 .w-mtb .btn{padding:5px 10px;}
 
 
-.w-loading{height:300px;background:url(../../res/image/loading.gif) no-repeat center center;}
+.w-loading{height:300px;background:url(../../res/images/loading.gif) no-repeat center center;}
 .w-message{height:300px;line-height:300px;text-align:center;}
 
 #www-wd-com .w-pager .zbtn,
