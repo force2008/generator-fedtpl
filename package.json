@@ -1,36 +1,41 @@
 {
-  "name": "generator-fedtpl",
-  "version": "0.0.4",
-  "description": "Yeoman generator",
-  "license": "MIT",
-  "main": "app/index.js",
-  "repository": "force2008/generator-fedtpl",
-  "author": {
-    "name": "yuqijun",
-    "email": "force2008@gmail.com",
-    "url": "https://github.com/force2008"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "files": [
-    "app"
-  ],
-  "keywords": [
-    "yeoman-generator"
-  ],
-  "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0",
-    "yosay": "^0.1.0"
-  },
-  "devDependencies": {
-    "mocha": "*"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
-  }
+    "name": "generator-fedtpl",
+    "version": "0.0.12",
+    "description": "Yeoman generator",
+    "license": "MIT",
+    "main": "app/index.js",
+    "repository": "force2008/generator-fedtpl",
+    "author": {
+        "name": "yuqijun",
+        "email": "force2008@gmail.com",
+        "url": "https://github.com/force2008"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "bin": {
+        "fedtpl": "./bin/fedtpl.js"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "files": [
+        "app",
+        "freemaker",
+        "single"
+    ],
+    "keywords": [
+        "yeoman-generator"
+    ],
+    "dependencies": {
+        "yeoman-generator": "~0.16.0",
+        "chalk": "~0.4.0",
+        "yosay": "^0.1.0"
+    },
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "peerDependencies": {
+        "yo": ">=1.0.0"
+    }
 }

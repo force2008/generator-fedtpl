@@ -1,0 +1,9 @@
+Description:
+    Creates a freemaker template file.
+    
+
+Example:
+    yo angular:freemaker thing 
+
+    This will create:
+        app/pages/thing.ftl
