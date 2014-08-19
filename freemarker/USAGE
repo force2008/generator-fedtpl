@@ -3,7 +3,7 @@ Description:
     
 
 Example:
-    yo angular:freemaker thing 
+    yo fedtpl:freemaker thing 
 
     This will create:
         app/pages/thing.ftl

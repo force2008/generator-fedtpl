@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var sys = require('sys');
+var path = require('path');
+var exec = require('child_process').exec;
+var child;
+
+var fs = require('fs');
+
+function isWebappInSubDirectories() {
+  var isInWebapp = false;
+  fs.readdirSync('.').filter(function (file) {
+	console.log(file);
+	if(fs.statSync(file).isDirectory()&&path.basename(file)=='webapp'){
+		isInWebapp = true;
+	}
+  });
+  return isInWebapp;
+}
+var folder=''
+if(isWebappInSubDirectories){
+	folder ='webapp/'
+}
+// executes `puer`
+console.log('puer folder: ' + folder);
+child = exec('puer -d '+folder, function (error, stdout, stderr) {
+console.log('stdout: ' + stdout);
+console.log('stderr: ' + stderr);
+if (error !== null) {
+	console.log('exec error: ' + error);
+}
+});
+
+// executes `mcss`
+console.log('mcss folder: ' + folder);
+child = exec('mcss -c '+ folder +'src/mcss/mcss.json', function (error, stdout, stderr) {
+console.log('stdout: ' + stdout);
+console.log('stderr: ' + stderr);
+if (error !== null) {
+	console.log('exec error: ' + error);
+}
+});

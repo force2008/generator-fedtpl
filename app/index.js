@@ -12,6 +12,7 @@ var FedtplGenerator = yeoman.generators.Base.extend({
 
     this.on('end', function() {
       if (!this.options['skip-install']) {
+        console.log('installDependencies');
         this.installDependencies();
       }
     });
@@ -21,7 +22,7 @@ var FedtplGenerator = yeoman.generators.Base.extend({
     var done = this.async();
 
     // Have Yeoman greet the user.
-    this.log(yosay('Welcome to the marvelous Fedtpl generator!'));
+    this.log(yosay('Welcome to the marvelous fedtpl generator!'));
     this.log(JSON.stringify(this.pkg));
 
     var prompts = [{
@@ -53,6 +54,11 @@ var FedtplGenerator = yeoman.generators.Base.extend({
         default: 'Y/n'
       }, {
         type: 'confirm',
+        name: 'puer',
+        message: 'Would you to install puer in template?',
+        default: 'Y/n'
+      }, {
+        type: 'confirm',
         name: 'gitlab',
         message: 'Would you to get dependencies from git lab?',
         default: 'Y/n'
@@ -63,10 +69,11 @@ var FedtplGenerator = yeoman.generators.Base.extend({
     this.prompt(prompts, function(props) {
       this.blogName = props.tplName;
       this.mcss = props.mcss;
+	  this.puer = props.puer;
       this.freemaker = props.freemaker;
       this.test = props.test;
       this.gitlab = props.gitlab;
-      console.log('template name:', this.blogName, ',mcss:', this.mcss, 'freemaker:', this.freemaker, 'test:', this.test)
+      console.log('template name:', this.blogName, ',mcss:', this.mcss, this.puer,'freemaker:', this.freemaker, 'test:', this.test)
       done();
     }.bind(this));
     var prompts = [{
@@ -127,8 +134,12 @@ var FedtplGenerator = yeoman.generators.Base.extend({
       this.bulkDirectory('webapp/mcss', 'webapp/src/mcss');
       _package.scripts.preinstall = 'npm i -g mcss';
       _package.dependencies.mcss = '0.4.8';
-
     }
+	  if (this.puer) {
+      _package.scripts.preinstall = 'npm i -g puer';
+      //_package.dependencies.mcss = '0.4.8';
+    }
+    _package.scripts.preinstall = 'npm i -g commander';  
 
     //this.copy('_package.json', 'package.json');
     this.write('package.json', JSON.stringify(_package));
