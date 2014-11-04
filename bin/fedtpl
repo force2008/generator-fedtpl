@@ -1,84 +1,91 @@
 #!/usr/bin/env node
 
 var path = require('path'),
-		fs = require('fs'),
-		yeoman = require('yeoman-generator')();
+    fs = require('fs'),
+    yeoman = require('yeoman-generator')();
+
 var version = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8')).version;
 
+
 var arguments = process.argv.slice(2);
-
 var program = require('commander')
-  .version(version || '0.0.1')
-  .usage('[options]')
-  .option('-r, --run', 'run puer and MCSS under webapp!')
-  .option('-f, --freemarker [filename]', 'run sub generator freemaker')
-  .parse(process.argv);
+    .version(version || '0.0.1')
+    .usage('[options]')
+    .option('-r, --run', 'run puer and MCSS under webapp!')
+    .option('-f, --freemarker [filename]', 'run sub generator freemaker')
+    .parse(process.argv);
 
+var config;
+if(fs.existsSync('config.json')){
+    config = JSON.parse(fs.readFileSync('config.json'), 'utf8');
+}
 
 if (program.run) {
-	var sys = require('sys');
-	var exec = require('child_process').exec;
-	var child;
-	var fs = require('fs');
-	var folder=''
-	if(isWebappInSubDirectories()){
-		folder ='webapp/'
-	}
-	// executes `puer`
-	console.log('puer folder: ' + folder);
-	child = exec('puer -d '+folder, function (error, stdout, stderr) {
-	console.log('stdout: ' + stdout);
-	console.log('stderr: ' + stderr);
-	if (error !== null) {
-		console.log('exec error: ' + error);
-	}
-	});
+    var sys = require('sys');
+    var exec = require('child_process').exec;
+    var child;
+    var fs = require('fs');
+    var folder = '';
+    console.log('config==',config)
+    if (isWebappInSubDirectories(config.webapp)) {
+        folder = config.webapp + '/'
+    }
+    // executes `puer`
+    console.log('puer folder: ' + folder);
+    child = exec(process.cwd()+'/node_modules/.bin/puer -d ' + folder, function(error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+    });
 
-	// executes `mcss`
-	console.log('mcss folder: ' + folder);
-	child = exec('mcss -c '+ folder +'src/mcss/mcss.json', function (error, stdout, stderr) {
-	console.log('stdout: ' + stdout);
-	console.log('stderr: ' + stderr);
-	if (error !== null) {
-		console.log('exec error: ' + error);
-	}
-	});
+    // executes `mcss`
+    console.log('mcss folder: ' + folder +'src/mcss/mcss.json');
+    child = exec(process.cwd()+'/node_modules/.bin/mcss -c ' + folder + 'src/mcss/mcss.json', function(error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+    });
 
-	return;
+    return;
 }
-if(program.freemarker){
-	yeoman.alias(/^([^:]+)$/, '$1:all');
-	yeoman.alias(/^([^:]+)$/, '$1:app');
-	yeoman.lookup()
-	yeoman.register(path.resolve(__dirname, '../freemarker/index.js'), 'yo');
-	var opt = ['fedtpl:freemarker'];
-	if(!arguments[1]){
-		opt.push('index.ftl')
-	}
-	yeoman.run(opt, {})
-	return;
+if (program.freemarker) {
+    yeoman.alias(/^([^:]+)$/, '$1:all');
+    yeoman.alias(/^([^:]+)$/, '$1:app');
+    yeoman.lookup()
+    yeoman.register(path.resolve(__dirname, '../freemarker/index.js'), 'yo');
+    var opt = ['fedtpl:freemarker'];
+    if (!arguments[1]) {
+        opt.push('index.ftl')
+    } else{
+    	opt.push(arguments[1]);
+    }
+    yeoman.run(opt, {})
+    return;
 }
 
-console.log('=======================')
-	yeoman.alias(/^([^:]+)$/, '$1:all');
-	yeoman.alias(/^([^:]+)$/, '$1:app');
-	// process.argv.forEach(function (val, index, array) {
-	//   console.log(index + ': ' + val);
-	// });
+yeoman.alias(/^([^:]+)$/, '$1:all');
+yeoman.alias(/^([^:]+)$/, '$1:app');
+// process.argv.forEach(function (val, index, array) {
+//   console.log(index + ': ' + val);
+// });
 
-	yeoman.lookup()
-	yeoman.register(path.resolve(__dirname, '../app/index.js'), 'yo');
+yeoman.lookup()
+yeoman.register(path.resolve(__dirname, '../app/index.js'), 'yo');
 
-	yeoman.run(['yo','fedtpl'], {})
+yeoman.run(['yo', 'fedtpl'], {})
 
 
-function isWebappInSubDirectories() {
-  var isInWebapp = false;
-  fs.readdirSync('.').filter(function (file) {
-	console.log(file);
-	if(fs.statSync(file).isDirectory()&&path.basename(file)=='webapp'){
-		isInWebapp = true;
-	}
-  });
-  return isInWebapp;
+function isWebappInSubDirectories(_webappName) {
+    var isInWebapp = false;
+    fs.readdirSync('.').filter(function(file) {
+        console.log(file);
+        if (fs.statSync(file).isDirectory() && path.basename(file) == _webappName) {
+            isInWebapp = true;
+        }
+    });
+    return isInWebapp;
 }

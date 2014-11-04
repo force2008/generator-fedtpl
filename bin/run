@@ -4,22 +4,22 @@ var sys = require('sys');
 var path = require('path');
 var exec = require('child_process').exec;
 var child;
-
 var fs = require('fs');
+var config = JSON.parse(fs.readFileSync(path.join(__dirname, '../config.json'), 'utf8')).version;
 
-function isWebappInSubDirectories() {
+function isWebappInSubDirectories(webapp) {
   var isInWebapp = false;
   fs.readdirSync('.').filter(function (file) {
 	console.log(file);
-	if(fs.statSync(file).isDirectory()&&path.basename(file)=='webapp'){
+	if(fs.statSync(file).isDirectory()&&path.basename(file)==webapp){
 		isInWebapp = true;
 	}
   });
   return isInWebapp;
 }
 var folder=''
-if(isWebappInSubDirectories){
-	folder ='webapp/'
+if(isWebappInSubDirectories(config.webapp)){
+	folder = config.webapp+'/'
 }
 // executes `puer`
 console.log('puer folder: ' + folder);

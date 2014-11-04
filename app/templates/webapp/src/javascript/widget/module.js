@@ -4,27 +4,23 @@
  */
 define(['{lib}util/event.js'
        , '{lib}util/template/tpl.js'
+       , '{lib}util/query/query.js'
+       , '{pro}widget/BaseComponent.js'
        ],
-    function() {
+    function(ut,e, e2) {
         var _ = NEJ.P,
-            f = NEJ.F,
-            _ut = _('nej.ut'),
-            _u = _('nej.u'),
-            _e = _('nej.e'),
-            _pn = _('nem.m'),
-            _pd = _('nem.d'),
-            _px = _('nem.x'),
-            _pro;
+            pro, pn;
 
-        _pn._$$Module = NEJ.C();
-        _pro = _pn._$$Module._$extend(_ut._$$Event);
+        var $$Module = NEJ.C();
+        pro = $$Module._$extend(ut._$$EventTarget);
 
-        _pro.__init = function(_options) {
+        pro.__init = function(_options) {
             this.__supInit(_options);
             if ( !! _options.tpl)
-                _e._$parseTemplate(_options.tpl);
-            _e._$parseTemplate('wgt-tpl');
-            
+                e._$parseTemplate(_options.tpl);
+            e._$parseTemplate('wgt-tpl');
         };
+
         
+        return $$Module;
     });

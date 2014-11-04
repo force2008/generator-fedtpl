@@ -3,33 +3,34 @@
  * author xxxx(xxxx@corp.netease.com)
  */
 
-define(['{pro}widget/module.js'],
-    function() {
-        var _ = NEJ.P,
-            _ut = _('nej.ut'),
-            _v = _('nej.v'),
-            _e = _('nej.e'),
-            _j = _('nej.j'),
-            _pm = _('xxx.m'),
-            _pro;
- 
+/**
+ * xx平台首页
+ * author xxxx(xxxx@corp.netease.com)
+ */
 
-        _pn._$$IndexModule = NEJ.C();
-        _pro = _pn._$$IndexModule._$extend(_pn._$$Module);
+define(['{lib}base/util.js'
+       ,'{lib}base/event.js'
+       ,'{lib}base/element.js'
+       ,'{pro}widget/module.js'],
+    function(ut,v,e,Module,p,o,f,r) {
+        var pro;
+
+        var _$$IndexModule = NEJ.C();
+        pro = _$$IndexModule._$extend(Module);
         
-        _pro.__init = function(_options) {
+        pro.__init = function(_options) {
             this.__supInit(_options);
-			this.__getNodes();
-			this.__addEvent();
+            this.__getNodes();
+            this.__addEvent();
         };
         
-        _pro.__getNodes = function(){
+        pro.__getNodes = function(){
             
         };
         
-        _pro.__addEvent = function(){
+        pro.__addEvent = function(){
            
         };
 
-        _pn._$$IndexModule._$allocate();
+        _$$IndexModule._$allocate();
     });
