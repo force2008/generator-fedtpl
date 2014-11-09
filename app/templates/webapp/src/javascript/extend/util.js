@@ -2,13 +2,17 @@
  * --------------------------------------------
  * 消息体生成 包括guid生成规则
  * @version  1.0
- * @author   yuqijun
+ * @author   yuqijun(yuqijun@corp.netease.com)
  * --------------------------------------------
  */
-define(['{lib}base/global.js'], function() {
-	var _ = NEJ.P,
-		_u = _('nej.u'),
-		_p = _('yx.x'),
-		_pd = _('yx.d');
+define(['base/util'], function(_ut) {
+	var _util ={};
+	_util.extend = function(o1, o2 ,override){
+    for( var i in o2 ) if( o1[i] == undefined || override){
+      o1[i] = o2[i]
+    }
+    return o1;
+  }
+	return _util
 	
 })

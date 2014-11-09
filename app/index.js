@@ -71,13 +71,7 @@ var FedtplGenerator = yeoman.generators.Base.extend({
                 name: 'puer',
                 message: 'Would you like to install puer in template?',
                 default: 'Y/n'
-            }, {
-                type: 'confirm',
-                name: 'gitlab',
-                message: 'Would you like to get dependencies from git lab?',
-                default: 'Y/n'
             }
-
         ];
 
         this.prompt(prompts, function(props) {
@@ -86,7 +80,7 @@ var FedtplGenerator = yeoman.generators.Base.extend({
             this.puer = props.puer;
             this.freemaker = props.freemaker;
             this.test = props.test;
-            this.gitlab = props.gitlab;
+            
             this.webappName = props.webappName;
             this.templatePath = props.templatePath;
             // console.log('template name:',this.blogName, 
@@ -137,13 +131,11 @@ var FedtplGenerator = yeoman.generators.Base.extend({
                 console.log(JSON.stringify(_bower));
                 _bower.dependencies.jasmine = 'https://github.com/pivotal/jasmine.git'
             }
-            if (this.gitlab) {
-                _bower.dependencies.nej = 'http://gitlab.hz.netease.com/caijf/nej.git';
-                //_bower.dependencies.publisher = 'http://gitlab.hz.netease.com/caijf/nejpublisher.git';
-            } else {
-                _bower.dependencies.nej = 'https://github.com/NetEaseWD/NEJ.git';
+            
+            _bower.dependencies.nej = '~0.2.0';
+            _bower.dependencies.regularjs = '~0.2.10';
                 //_bower.dependencies.publisher = 'https://github.com/NetEaseWD/NEJPublisher.git';
-            }
+            
             //this.copy('_bower.json', 'bower.json');
             this.write('bower.json', JSON.stringify(_bower));
             var _bowerrc = {};
@@ -163,14 +155,14 @@ var FedtplGenerator = yeoman.generators.Base.extend({
         if (this.mcss) {
             this.bulkDirectory('webapp/mcss',this.webappName+'/src/mcss');
             //_package.scripts.preinstall = 'npm i -g mcss';
-            _package.dependencies.mcss = '0.4.8';
+            _package.dependencies.mcss = '~0.4';
         }
         if (this.puer) {
             //_package.scripts.preinstall = 'npm i -g puer';
-            _package.dependencies.puer = '0.1.1';
+            _package.dependencies.puer = '~1.0';
         }
         //_package.scripts.preinstall = 'npm i -g commander';
-        _package.dependencies.nej = '0.2.5';
+        _package.dependencies.nej = '~0.4';
         //this.copy('_package.json', 'package.json');
         this.write('package.json', JSON.stringify(_package));
         this.write('config.json', JSON.stringify({"webapp":this.webappName,"template":this.templatePath}));

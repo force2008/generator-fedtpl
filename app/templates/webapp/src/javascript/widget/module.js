@@ -4,8 +4,6 @@
  */
 define(['{lib}util/event.js'
        , '{lib}util/template/tpl.js'
-       , '{lib}util/query/query.js'
-       , '{pro}widget/BaseComponent.js'
        ],
     function(ut,e, e2) {
         var _ = NEJ.P,
@@ -16,9 +14,7 @@ define(['{lib}util/event.js'
 
         pro.__init = function(_options) {
             this.__supInit(_options);
-            if ( !! _options.tpl)
-                e._$parseTemplate(_options.tpl);
-            e._$parseTemplate('wgt-tpl');
+            
         };
 
         

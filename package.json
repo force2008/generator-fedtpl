@@ -1,6 +1,6 @@
 {
     "name": "generator-fedtpl",
-    "version": "0.0.42",
+    "version": "0.0.46",
     "description": "Yeoman generator",
     "license": "MIT",
     "main": "app/index.js",

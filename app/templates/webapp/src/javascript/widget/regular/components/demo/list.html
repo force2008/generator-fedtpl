@@ -1,0 +1,21 @@
+<div class="m-clst table">
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row"><div class="col-md-7">分类</div><div class="col-md-3">操作</div></div>
+    </div>
+    {{#list list as item}}
+    <div class="row panel-body">
+      <div class="col-md-7">
+        <span class="j-name name">{{item.name}}</span>
+      </div>
+      <div class="col-md-3"><span class="j-edit f-csp" on-click={{this.update(item)}}>修改</span> <span class="j-del f-csp" on-click={{this.remove(item,item_index)}}>删除</span></div>
+    </div>
+    {{/list}}
+</div>
+<div class="btns f-tac"><span class="btn btn-primary j-flag" on-click={{this.newCategory()}}>新建</span></div>
+
+<pager total={{Math.ceil(total/10)}} current={{current}}></pager> 
+</div>
+
+

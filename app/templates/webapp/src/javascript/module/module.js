@@ -5,8 +5,8 @@
  * @author   genify(caijf@corp.netease.com)
  * ------------------------------------------
  */
-define(['{lib}util/dispatcher/module.base.js'],
-function(){
+define(['util/klass','util/dispatcher/module.base'],
+function(_k,_t){
     // variable declaration
     var _  = NEJ.P,
         _o = NEJ.O,
@@ -21,8 +21,8 @@ function(){
      * @extends {nej.ut._$$AbstractModule}
      * @param   {Object}  可选配置参数，已处理参数列表如下所示
      */
-    _p._$$Module = NEJ.C();
-      _proModule = _p._$$Module._$extend(_t._$$AbstractModule);
+    _p._$$Module = _k._$klass();
+    _proModule = _p._$$Module._$extend(_t._$$AbstractModule);
     /**
      * 从地址中解析出UMI信息
      * @return {String} UMI信息

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>regular demo</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width"/>
+<link rel="stylesheet" href="../css/base.css"/>
+<link rel="stylesheet" href="../css/grid.css"/>
+<link rel="stylesheet" href="../css/module.css"/>
+<link rel="stylesheet" href="../css/unit.css"/>
+</head>
+<body>
+<div id="list"></div>
+<script src="/src/javascript/lib/nej/src/define.js?pro=../javascript/"></script>
+<script>
+var f=function(_e,_ut,List){
+    var list = new List();
+    list.$inject('#list');
+};
+define(['base/element','base/util','pro/widget/regular/components/demo/list'],f);
+</script>
+</body>
+</html>

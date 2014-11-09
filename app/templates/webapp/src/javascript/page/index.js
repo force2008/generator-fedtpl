@@ -8,14 +8,15 @@
  * author xxxx(xxxx@corp.netease.com)
  */
 
-define(['{lib}base/util.js'
-       ,'{lib}base/event.js'
-       ,'{lib}base/element.js'
-       ,'{pro}widget/module.js'],
-    function(ut,v,e,Module,p,o,f,r) {
+define(['base/klass'，
+       ,'base/util'
+       ,'base/event'
+       ,'base/element'
+       ,'pro/widget/module'],
+    function(_k,_ut,_v,_e,Module,p,o,f,r) {
         var pro;
 
-        var _$$IndexModule = NEJ.C();
+        var _$$IndexModule = _k._$klass();
         pro = _$$IndexModule._$extend(Module);
         
         pro.__init = function(_options) {

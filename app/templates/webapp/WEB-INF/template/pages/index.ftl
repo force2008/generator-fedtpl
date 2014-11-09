@@ -1,12 +1,14 @@
-<#include "../wrap/common.ftl">
 <#escape x as x?html>
 <!DOCTYPE html>
 <html>
 <head>
+<#include "../wrap/common.ftl">
 <meta charset="utf-8"/>
-<@title/>
+<title>demo模板</title>
+
+<@css/>
 <!-- @STYLE -->
-<#include "../wrap/css.ftl">
+<link rel="stylesheet" type="text/css" href="/src/css/index.css">
 </head>
 <body id="index-netease-com">
 <#include "../wrap/top.ftl">
@@ -20,6 +22,10 @@
       </div>
     </div>
 </div>
+<@footer/>
+<#noparse>
+<!-- @SCRIPT -->
+</#noparse>
 <!-- @DEFINE -->
 <script src="${jslib}define.js?pro=${jspro}"></script>
 <script src="${jspro}page/index.js"></script>

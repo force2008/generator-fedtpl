@@ -343,14 +343,10 @@
         </div>
     </div>
 </div>
-<script src="/src/nej/src/define.js?pro=./"></script>
+<script src="/src/nej/src/define.js?pro=../javascript/"></script>
 <script>
-var f=function(){
-    var  _ = NEJ.P,
-        _e = _('nej.e'),
-        _u = _('nej.u'),
-        _t = _('nej.ut');
-    var _lists = _e._$getByClassName(document,'u-scrollbar');
+var f=function(_ut,_e,_t){
+  var _lists = _e._$getByClassName(document,'u-scrollbar');
     _u._$forEach(_lists,function(_item,_index,_this){
         _t._$$SimpleScroll._$allocate({
             'ybar':{body:_item.childNodes[0],track:_item},
@@ -359,7 +355,7 @@ var f=function(){
         });
     });
 };
-define(['{lib}base/element.js','{lib}base/util.js','{lib}util/scroll/scroll.simple.js'],f);
+define(['base/util','base/element','util/scroll/scroll.simple'],f);
 </script>
 </body>
 </html>
