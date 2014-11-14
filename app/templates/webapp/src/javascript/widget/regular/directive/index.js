@@ -2,7 +2,7 @@
  * --------------------------------------------
  * BaseComponent 指令扩展
  * @version  1.0
- * @author   hzzhenghaibo(hzzhenghaibo@corp.netease.com)
+ * @author  
  * --------------------------------------------
  */
 define([

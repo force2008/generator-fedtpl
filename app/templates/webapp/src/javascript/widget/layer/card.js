@@ -2,7 +2,7 @@
  * --------------------------------------------
  * 项目卡片基类实现文件
  * @version  1.0
- * @author   genify(caijf@corp.netease.com)
+ * @author  
  * --------------------------------------------
  */
 define(['{lib}ui/layer/card.wrapper.js'],

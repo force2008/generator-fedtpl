@@ -2,7 +2,7 @@
  * --------------------------------------------
  * 项目窗体基类实现文件
  * @version  1.0
- * @author   genify(caijf@corp.netease.com)
+ * @author   
  * --------------------------------------------
  */
 define(['{lib}ui/layer/window.wrapper.js'],

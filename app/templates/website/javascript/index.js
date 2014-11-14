@@ -1,6 +1,6 @@
 /**
  * xx页面功能实现
- * author (author@corp.netease.com)
+ * author 
  */
 (function(){
 var page ={

@@ -2,7 +2,7 @@
  * --------------------------------------------
  * 全局进度条控件
  * @version  1.0
- * @author   hzzhenghaibo(hzzhenghaibo@corp.netease.com)
+ * @author  
  * --------------------------------------------
  */
 define([

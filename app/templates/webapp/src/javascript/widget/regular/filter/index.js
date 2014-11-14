@@ -1,6 +1,6 @@
 /**
  * 表单字段生成组件
- * author hzzhenghaibo(hzzhenghaibo@corp.netease.com)
+ * author 
  */
 
 NEJ.define([

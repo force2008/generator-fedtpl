@@ -1,11 +1,6 @@
 ﻿/**
  * xx平台首页
- * author xxxx(xxxx@corp.netease.com)
- */
-
-/**
- * xx平台首页
- * author xxxx(xxxx@corp.netease.com)
+ * author 
  */
 
 define(['base/klass'，

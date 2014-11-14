@@ -1,6 +1,6 @@
 /**
  * Regular Component 基类，用于启动整页component
- * author hzzhenghaibo(hzzhenghaibo@corp.netease.com)
+ * author 
  */
 define([
   "pro/lib/regularjs/dist/regular",

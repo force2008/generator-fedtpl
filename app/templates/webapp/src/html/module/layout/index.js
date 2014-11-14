@@ -2,7 +2,7 @@
  * ------------------------------------------
  * WebIM框架实现文件
  * @version  1.0
- * @author   huxueliang(huxueliang@corp.netease.com)
+ * @author   
  * ------------------------------------------
  */
 define(['{pro}module/module.js'],

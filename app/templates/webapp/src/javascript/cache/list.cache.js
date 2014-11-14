@@ -2,7 +2,7 @@
  * --------------------------------------------
  * xx窗体控件实现
  * @version  1.0
- * @author   author(author@corp.netease.com)
+ * @author   
  * --------------------------------------------
  */
 var f = function() {

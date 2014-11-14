@@ -1,6 +1,6 @@
 /**
  * 活动列表筛选
- * author hzzhenghaibo(hzzhenghaibo@corp.netease.com)
+ * author 
  */
 
 define([

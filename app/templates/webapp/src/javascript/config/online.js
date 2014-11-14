@@ -1,6 +1,6 @@
 /**
  * 全局变量
- * author yuqijun(yuqijun@corp.netease.com)
+ * author yuqijun
  */
 window.APP_CONF = {
 

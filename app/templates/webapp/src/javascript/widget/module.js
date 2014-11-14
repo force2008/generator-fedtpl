@@ -1,6 +1,6 @@
 /**
  * 基础模块
- * author yuqijun(yuqijun@corp.netease.com)
+ * author 
  */
 define(['{lib}util/event.js'
        , '{lib}util/template/tpl.js'

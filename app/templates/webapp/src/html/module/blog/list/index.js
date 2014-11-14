@@ -2,7 +2,7 @@
  * ------------------------------------------
  * 日志列表模块实现文件
  * @version  1.0
- * @author   genify(caijf@corp.netease.com)
+ * @author  
  * ------------------------------------------
  */
 define(['{pro}module/module.js'

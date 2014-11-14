@@ -2,7 +2,7 @@
  * --------------------------------------------
  * 消息体生成 包括guid生成规则
  * @version  1.0
- * @author   yuqijun(yuqijun@corp.netease.com)
+ * @author   yuqijun
  * --------------------------------------------
  */
 define(['base/util'], function(_ut) {

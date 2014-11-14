@@ -1,6 +1,6 @@
 /**
  * 基于NEJ和bootstrap的日期选择器
- * author hzzhenghaibo(hzzhenghaibo@corp.netease.com)
+ * author 
  */
 
 define([
